@@ -6,7 +6,7 @@ const cors = require('cors')
 // Require Express to run server and routes
 const express = require('express');
 // Start up an instance of app
-const app=express();
+const app = express();
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -20,19 +20,22 @@ app.use(express.static('website'));
 // Setup Server
 
 app.listen(3000, () => {
-    console.log(`Server listening at port 3000`);
-  });
+  console.log(`Server listening at port 3000`);
+});
 
 
 
-  app.post('/data',(res)=>{
+app.post('/data', (req, res) => {
+  try {
+    projectData.temp = req.body.main.temp;
+    projectData.date = req.body.Date;
+    projectData.UserInput = req.body.input;
 
-    projectData.temp = res.body.main.temp;
-    projectData.date = res.body.Date;
-    projectData.UserInput = res.body.input;
- 
-  })
+  } catch (error) {
+    console.log("Make sure you typed zip code correct")
+  }
+})
 
-  app.get('/retrive',(req,res)=>{
-    res.json({projectData})
-  })
+app.get('/retrive', (req, res) => {
+  res.json({ projectData })
+})
