@@ -1,5 +1,5 @@
 /* Global Variables */
-let url = "http://api.openweathermap.org/data/2.5/weather?q="
+let url = "http://api.openweathermap.org/data/2.5/weather?zip="
 let app = "&appid=5f001e4f63d3267254621193b25a0845"
 // Create a new date instance dynamically with JS
 let d = new Date();
