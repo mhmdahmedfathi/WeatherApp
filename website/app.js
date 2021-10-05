@@ -56,7 +56,6 @@ const GetAreaWeather = async (url, ZipArea, app) => {
             }
         }).then(result => {
             
-    document.querySelector(".entry").setAttribute("style","Display:block")
             document.getElementById("temp").innerHTML = result.projectData.temp;
             document.getElementById("date").innerHTML = result.projectData.date;
             document.getElementById("content").innerHTML = result.projectData.UserInput;
@@ -67,7 +66,3 @@ const GetAreaWeather = async (url, ZipArea, app) => {
         console.log("error", error);
     }
 }
-
-(function () {
-    document.querySelector(".entry").setAttribute("style","Display:none")
-})();
