@@ -30,9 +30,17 @@ app.post('/data', (req, res) => {
     projectData.temp = req.body.main.temp;
     projectData.date = req.body.Date;
     projectData.UserInput = req.body.input;
+    res.send({
+      sucess: true,
+      message: "request successful"
+    }) // sending a success response
 
   } catch (error) {
     console.log("Make sure you typed zip code correct")
+    res.send({
+      sucess: false,
+      message: "Make sure you typed zip code correct"
+    }) // sending a error response
   }
 })
 
