@@ -6,11 +6,11 @@ let d = new Date();
 let newDate = d.getMonth() + '.' + d.getDate() + '.' + d.getFullYear();
 
 
-const ZipArea = document.getElementById('zip').value;
-
 document.getElementById('generate').addEventListener('click', GetWeather);
 const input= document.getElementById('feelings').value;
 function GetWeather(e) {
+    
+    const ZipArea = document.getElementById('zip').value;
     GetAreaWeather(url, ZipArea, app)
 }
 
@@ -18,6 +18,7 @@ function GetWeather(e) {
 const postData = async (url, data = [])=>{
     await fetch(url, {
         method: 'POST',
+        credentials: 'same-origin',
         headers: {
             'content-type': 'application/json'
         },
